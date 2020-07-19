@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.候机楼Mapper">
+
+	<select id="find候机楼By候机楼编号" parameterType="String" resultType="jmu.fly.po.候机楼">
+		select * from 候机楼 where 候机楼编号 = #{候机楼编号}
+	</select>
+	
+	<select id="find候机楼By机场编号" parameterType="String" resultType="jmu.fly.po.候机楼">
+		select * from 候机楼 where 机场编号 = #{机场编号}
+	</select>
+	
+	<select id="findAll候机楼" resultType="jmu.fly.po.候机楼">
+		select * from 候机楼
+	</select>
+
+</mapper>

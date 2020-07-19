@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.航线Mapper">
+
+	<select id="find航线By城市" resultType="jmu.fly.po.航线">
+		select * from 航线 where 出发城市 = #{出发城市} and 到达城市 = #{到达城市}
+	</select>
+	
+	<select id="findAll航线" resultType="jmu.fly.po.航线">
+		select * from 航线
+	</select>
+	
+</mapper>

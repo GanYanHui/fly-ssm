@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.订单Mapper">
+	
+	<select id="find订单By订单号" parameterType="String" resultType="jmu.fly.po.订单">
+		select * from 订单 where 订单号= #{订单号}
+	</select>
+
+	<insert id="insert订单" parameterType="jmu.fly.po.乘机人">
+		insert into 订单(订单号, 登录id, 用户id, 订单日期, 机票数, 联系电话, 抵用积分, 总额, 订单状态)
+		values(#{订单号}, #{登录id}, #{用户id}, #{订单日期}, #{机票数}, #{联系电话}, #{抵用积分}, #{总额}, #{订单状态})
+	</insert>
+	
+	<select id="findAll订单" resultType="jmu.fly.po.订单">
+		select * from 订单
+	</select>
+	
+	<update id="update订单">
+		update 订单 set 订单状态 = #{订单状态} where 订单号 = #{订单号}
+	</update>
+	
+	<select id="find订单By用户id" resultType="jmu.fly.po.订单">
+		select * from 订单 where 用户id = #{用户id}
+	</select>
+	
+</mapper>

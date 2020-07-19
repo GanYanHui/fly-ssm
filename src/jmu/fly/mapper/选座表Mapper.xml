@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.选座表Mapper">
+	
+	<select id="findAll选座表" resultType="jmu.fly.po.选座表">
+		select * from 选座表
+	</select>
+	
+	<update id="update选座表" parameterType="jmu.fly.po.选座表">
+		update 选座表 set 状态 = #{状态} where 座位编号 = #{座位编号} and 执飞航班编号 = #{执飞航班编号}
+	</update>
+	
+</mapper>

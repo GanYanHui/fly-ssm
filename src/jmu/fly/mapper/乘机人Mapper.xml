@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.乘机人Mapper">
+	
+	<select id="find乘机人By乘机人身份证号" parameterType="String" resultType="jmu.fly.po.乘机人">
+		select * from 乘机人 where 乘机人身份证号 = #{乘机人身份证号}
+	</select>
+
+	<insert id="insert乘机人" parameterType="jmu.fly.po.乘机人">
+		insert into 乘机人(乘机人身份证号, 乘机人姓名, 乘机人性别, 乘机人联系电话, 信用状态) 
+		values(#{乘机人身份证号}, #{乘机人姓名}, #{乘机人性别}, #{乘机人联系电话}, #{信用状态})
+	</insert>
+	
+</mapper>

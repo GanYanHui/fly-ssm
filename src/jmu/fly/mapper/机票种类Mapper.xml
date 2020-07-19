@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.机票种类Mapper">
+
+	<select id="find机票种类By执飞航班编号" parameterType="String" resultType="jmu.fly.po.机票种类">
+		select * from 机票种类 where 执飞航班编号 = #{执飞航班编号}
+	</select>
+
+	<select id="find机票种类By执飞航班编号And舱位编号" resultType="jmu.fly.po.机票种类">
+		select * from
+		机票种类 where 执飞航班编号 = #{执飞航班编号} and 舱位编号 = #{舱位编号}
+	</select>
+
+	<select id="findAll机票种类" resultType="jmu.fly.po.机票种类">
+		select * from 机票种类
+	</select>
+
+	<update id="update机票种类" parameterType="jmu.fly.po.机票种类">
+		update 机票种类 set 销售价格 =
+		#{销售价格}, 有效起始日期 = #{有效起始日期}, 有效截至日期 = #{有效截至日期},
+		折扣 = #{折扣}, 余票量 = #{余票量}, 行李额度 = #{行李额度}, 行李件数 = #{行李件数}, 
+		餐食状态 = #{餐食状态}, 退改签规则 = #{退改签规则}
+		where 舱位编号 = #{舱位编号} and 执飞航班编号 = #{执飞航班编号}
+	</update>
+
+	<insert id="insert机票种类" parameterType="jmu.fly.po.机票种类">
+		insert into 机票种类(舱位编号, 执飞航班编号, 销售价格, 有效起始日期, 有效截至日期, 折扣, 
+		余票量, 行李额度, 行李件数, 餐食状态, 退改签规则) 
+		values(#{舱位编号}, #{执飞航班编号}, #{销售价格}, #{有效起始日期}, #{有效截至日期}, #{折扣}, 
+		#{余票量}, #{行李额度}, #{行李件数}, #{餐食状态}, #{退改签规则})
+	</insert>
+	
+	<delete id="delete机票种类By执飞航班编号And舱位编号">
+		delete from 机票种类 where 执飞航班编号 = #{执飞航班编号} and 舱位编号 = #{舱位编号}
+	</delete>
+	
+</mapper>

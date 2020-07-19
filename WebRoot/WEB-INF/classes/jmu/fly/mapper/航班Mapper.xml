@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.航班Mapper">
+
+	<select id="find航班By候机楼编号" parameterType="String" resultType="jmu.fly.po.航班">
+		select * from 航班 where 出发地候机楼编号 = #{候机楼编号} or 目的地候机楼编号 = #{候机楼编号}
+	</select>
+
+	<select id="find航班By航线编号" parameterType="String" resultType="jmu.fly.po.航班">
+		select * from 航班 where 航线编号 = #{航线编号}
+	</select>
+
+	<insert id="insert航班" parameterType="jmu.fly.po.航班">
+		insert into 航班(航班编号, 航线编号,
+		机型编号, 出发地候机楼编号, 目的地候机楼编号, 计划起飞时间, 计划到达时间) values(#{航班编号}, #{航线编号},
+		#{机型编号}, #{出发地候机楼编号}, #{目的地候机楼编号}, #{计划起飞时间}, #{计划到达时间})
+	</insert>
+
+	<delete id="delete航班By航班编号" parameterType="String">
+		delete from 航班 where
+		航班编号 = #{航班编号}
+	</delete>
+
+	<select id="findAll航班" resultType="jmu.fly.po.航班">
+		select * from 航班;
+	</select>
+
+	<select id="find航班By航班编号" parameterType="String" resultType="jmu.fly.po.航班">
+		select * from 航班 where 航班编号 = #{航班编号}
+	</select>
+
+	<update id="update航班" parameterType="jmu.fly.po.航班">
+		update 航班 set 航线编号 =
+		#{航线编号}, 机型编号 = #{机型编号}, 出发地候机楼编号 = #{出发地候机楼编号},
+		目的地候机楼编号 =
+		#{目的地候机楼编号}, 计划起飞时间 = #{计划起飞时间}, 计划到达时间 = #{计划到达时间}
+		where 航班编号 =
+		#{航班编号}
+	</update>
+
+	<select id="find航班ByLike" parameterType="String" resultType="jmu.fly.po.航班">
+		select * from 航班 where 航班编号 like concat('%', #{string}, '%') or 航线编号 like concat('%', #{string}, '%') or
+		机型编号 like concat('%', #{string}, '%') or 出发地候机楼编号 like concat('%', #{string}, '%') or 目的地候机楼编号 like
+		concat('%', #{string}, '%') or 计划起飞时间 like concat('%', #{string}, '%') or 计划到达时间 like concat('%', #{string}, '%')
+	</select>
+
+
+</mapper>

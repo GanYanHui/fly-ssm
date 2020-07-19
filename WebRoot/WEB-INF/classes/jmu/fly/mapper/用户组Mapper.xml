@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.用户组Mapper">
+	
+	<insert id="insert用户组" parameterType="jmu.fly.po.用户组">
+		insert into 用户组(登录id, 登录密码, 联系电话, 邮箱) values(#{登录id}, #{登录密码}, #{联系电话}, #{邮箱})
+	</insert>
+	
+</mapper>

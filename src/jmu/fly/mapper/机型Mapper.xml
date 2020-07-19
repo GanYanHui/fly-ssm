@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.机型Mapper">
+
+	<select id="findAll机型" resultType="jmu.fly.po.机型">
+		select * from 机型
+	</select>
+	
+</mapper>

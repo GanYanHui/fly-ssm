@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.管理员Mapper">
+	<!-- 根据登录id查询管理员信息,id必须与接口中的方法名一致,输入参数一致,输出参数一致 -->
+	<select id="find管理员By登录id" parameterType="String" resultType="jmu.fly.po.管理员">
+		select * from 管理员 where 登录id = #{登录id}
+	</select>
+
+</mapper>

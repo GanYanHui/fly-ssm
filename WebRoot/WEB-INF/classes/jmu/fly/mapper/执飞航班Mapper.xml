@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.执飞航班Mapper">
+
+	<select id="find执飞航班By航班编号" parameterType="String" resultType="jmu.fly.po.执飞航班">
+		select * from 执飞航班 where 航班编号 = #{航班编号}
+	</select>
+
+	<select id="find执飞航班By执飞日期" parameterType="String" resultType="jmu.fly.po.执飞航班">
+		select * from 执飞航班 where 执飞日期 = #{执飞日期}
+	</select>
+
+	<select id="find执飞航班By航班编号And执飞日期" resultType="jmu.fly.po.执飞航班">
+		select * from 执飞航班 where 航班编号 = #{航班编号} and 执飞日期 = #{执飞日期}<!-- paramterType只能一个参数 -->
+	</select>
+	
+	<select id="findAll执飞航班" resultType="jmu.fly.po.执飞航班">
+		select * from 执飞航班
+	</select>
+	
+	<select id="find执飞航班By执飞航班编号" parameterType="String" resultType="jmu.fly.po.执飞航班">
+		select * from 执飞航班 where 执飞航班编号 = #{执飞航班编号}
+	</select>
+	
+	<update id="update执飞航班" parameterType="jmu.fly.po.执飞航班">
+		update 执飞航班 set 航班编号 = #{航班编号}, 执飞日期 = #{执飞日期}, 执行价格 = #{执行价格}, 
+		预计起飞时间 = #{预计起飞时间}, 预计到达时间 = #{预计到达时间}, 实际起飞时间 = #{实际起飞时间}, 
+		实际到达时间 = #{实际到达时间}, 状态 = #{状态}, 登机口 = #{登机口}, 登机时间 = #{登机时间} 
+		where 执飞航班编号 = #{执飞航班编号}
+	</update>
+	
+	<insert id="insert执飞航班" parameterType="jmu.fly.po.执飞航班">
+		insert into 执飞航班(执飞航班编号, 航班编号, 执飞日期, 执行价格, 预计起飞时间, 预计到达时间, 
+		实际起飞时间, 实际到达时间, 状态, 登机口, 登机时间)
+		values(#{执飞航班编号}, #{航班编号}, #{执飞日期}, #{执行价格}, #{预计起飞时间}, #{预计到达时间}, 
+		#{实际起飞时间}, #{实际到达时间}, #{状态}, #{登机口}, #{登机时间})
+	</insert>
+	
+	<delete id="delete执飞航班By执飞航班编号" parameterType="String">
+		delete from 执飞航班 where 执飞航班编号 = #{执飞航班编号}
+	</delete>
+	
+</mapper>

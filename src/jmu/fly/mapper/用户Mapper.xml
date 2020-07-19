@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.用户Mapper">
+
+	<!-- 根据用户id查询用户信息,id必须与接口中的方法名一致,输入参数一致,输出参数一致 -->
+	<select id="find用户By用户id" parameterType="String" resultType="jmu.fly.po.用户">
+		select * from 用户 where 用户id = #{用户id}
+	</select>
+
+	<select id="find用户By登录id" parameterType="String" resultType="jmu.fly.po.用户">
+		select * from 用户 where 登录id = #{登录id}
+	</select>
+
+	<select id="findAll用户" resultType="jmu.fly.po.用户">
+		select * from 用户
+	</select>
+	
+	<insert id="insert用户" parameterType="jmu.fly.po.用户">
+		insert into 用户(登录id, 用户id, 登录密码, 联系电话, 邮箱, 用户姓名, 用户身份证号, 用户性别, 用户年龄, 用户积分)
+		values(#{登录id}, #{用户id}, #{登录密码}, #{联系电话}, #{邮箱}, 
+		#{用户姓名}, #{用户身份证号}, #{用户性别}, #{用户年龄}, #{用户积分})
+	</insert>
+	
+</mapper>

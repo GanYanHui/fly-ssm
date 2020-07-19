@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.fly.mapper.机票Mapper">
+
+	<select id="findAll机票" resultType="jmu.fly.po.机票">
+		select * from 机票
+	</select>
+
+	<select id="find机票By执飞航班编号" parameterType="String" resultType="jmu.fly.po.机票">
+		select * from 机票 where 执飞航班编号 = #{执飞航班编号}
+	</select>
+
+	<insert id="insert机票" parameterType="jmu.fly.po.机票">
+		insert into 机票(机票编号, 乘机人身份证号, 订单号, 舱位编号, 执飞航班编号, 座位编号, 
+		机场建设费, 保险费, 机票价格, 备注, 值机状态, 登机号)
+		values(#{机票编号}, #{乘机人身份证号}, #{订单号}, #{舱位编号}, #{执飞航班编号}, #{座位编号},
+		#{机场建设费}, #{保险费}, #{机票价格}, #{备注}, #{值机状态}, #{登机号})
+	</insert>
+	
+	<select id="find机票By订单号" parameterType="String" resultType="jmu.fly.po.机票">
+		select * from 机票 where 订单号 = #{订单号}
+	</select>
+	
+</mapper>
